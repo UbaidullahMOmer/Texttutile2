@@ -1,10 +1,10 @@
-import "./App.css"
-import Home from "./components/home/Home"
+import React from "react"
+import Navbar from "./components/Navbar"
 function App() {
   return (
     <>
+      <Navbar/>
       <h1>Ubaidullah</h1>
-      <Home/>
     </>
   )
 }
