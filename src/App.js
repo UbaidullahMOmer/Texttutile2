@@ -1,8 +1,12 @@
 import "./App.css"
-import Pages from "./components/pages/Pages"
-
+import Home from "./components/home/Home"
 function App() {
-  return <Pages />
+  return (
+    <>
+      <h1>Ubaidullah</h1>
+      <Home/>
+    </>
+  )
 }
 
 export default App
