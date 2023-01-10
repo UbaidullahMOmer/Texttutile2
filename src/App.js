@@ -5,6 +5,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <h1>Ubaidullah</h1>
+      <h2>Nothing</h2>
     </>
   )
 }
