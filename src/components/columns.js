@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-export const COLUMNS = [
+export const Columns = [
   {
     Header: 'Id',
     Footer: 'Id',
@@ -50,7 +50,7 @@ export const COLUMNS = [
   },
 ]
 
-export const GROUPED_COLUMNS = [
+export const GROUPED_Columns = [
   {
     Header: 'Id',
     Footer: 'Id',
