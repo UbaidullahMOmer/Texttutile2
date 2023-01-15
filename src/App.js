@@ -1,17 +1,56 @@
-import React from "react"
-import Navbar from "./components/Navbar"
-import TextForm from "./components/TextForm"
-import {BasicTable} from "./components/BasicTable"
-function App() {
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+function MyTable({ data }) {
+  const classes = useStyles();
+
+  const handleDelete = (id) => {
+    // Handle delete logic here
+  }
+
   return (
-    <>
-      <Navbar title="Texttutile" about="About" />
-      <div className="container my-3">
-      <TextForm headding="Enter the text to analyze below"/>
-      <BasicTable/>
-      </div>
-    </>
-  )
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right"></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.age}</TableCell>
+              <TableCell align="right">
+                <IconButton onClick={() => handleDelete(row.id)}>
+                  <DeleteIcon />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
 
-export default App
+export default App;
