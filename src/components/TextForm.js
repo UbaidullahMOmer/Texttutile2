@@ -16,9 +16,10 @@ export default function TextForm(props) {
             <div className='container'>
                 <h1>{props.headding}</h1>
                 <div className="mb-3">
-                    <textarea  className="form-control" onChange={handleOnChange} value={text} placeholder="Type here" id="mybox" rows="10"></textarea>
+                    <textarea className="form-control" onChange={handleOnChange} value={text} placeholder="Type here" id="mybox" rows="10"></textarea>
                 </div>
                 <button className='btn btn-primary' onClick={handleUpClick}>Convert to Uppercase</button>
+                <button className='btn btn-primary' onClick={handleUpClick}>Convert to Lowercase</button>
             </div>
             <div className='container my-3'>
                 <h1>You text summary</h1>
