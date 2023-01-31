@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import Sport from ".components/Sport"
+
 
 function App() {
   const [news, setNews] = useState([])
-  const [con, setCon] = useState("in")
+  const [con, setCon] = useState("health")
 
-  useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
+
+  useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?category=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
       .then((res) => {
         console.log(res.data.articles);
         setNews(res.data.articles)
+        // setPk(res.data.articles)
       })
   }, [con])
   return (
@@ -29,24 +30,22 @@ function App() {
               <li className="nav-item">
                 <a className="nav-link" href="!" onClick={() => { setCon("in") }}>India</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="!" onClick={() => { setCon("ca") }}>Canada</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="!" onClick={() => { setCon("za") }}>South Africa</a>
-              </li>
               <div className="btn-group">
                 <button type="button" className="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Action
+                  Country
                 </button>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
-                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("za") }}>Action</a></li>
+                  <li><a className="dropdown-item" href="!" onClick={() => { setCon("health") }}>Action</a></li>
+                </ul>
+              </div>
+              <div className="btn-group">
+                <button type="button" className="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Category
+                </button>
+                <ul className="dropdown-menu">
+                  <li onClick={() => { setCon("health") }}>Action</li>
+                  <li onClick={() => { setCon("gr") }}>Greece</li>
+
                 </ul>
               </div>
             </ul>
