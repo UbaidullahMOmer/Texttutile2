@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import Sport from ".components/Sport"
+function Sport() {
+    const [news, setNews] = useState([])
+    const [con, setCon] = useState("sports")
 
-function App() {
-  const [news, setNews] = useState([])
-  const [con, setCon] = useState("in")
+    useEffect(() => {
+        axios.get(`https://newsapi.org/v2/top-headlines?category=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
+            .then((res) => {
+                console.log(res.data.articles);
+                setNews(res.data.articles)
+            })
+    }, [con])
+    return (
+        <>
 
-  useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
-      .then((res) => {
-        console.log(res.data.articles);
-        setNews(res.data.articles)
-      })
-  }, [con])
-  return (
-    <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+<nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="!">NewsDay</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="!navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,27 +56,27 @@ function App() {
           </div>
         </div>
       </nav>
-      <div className="container my-5">
-        <div className="row text-center">
-          {
-            news.map((val) => {
-              return (
-                <div className="col my-3">
-                  <div className="card" style={{ width: "18rem" }}>
-                    <img src={val.urlToImage} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">{val.title}</h5>
-                      <p className="card-text">{val.description}</p>
-                      <a href={val.url} target="_blank">view more</a>
-                    </div>
-                  </div>
+            <div className="container my-5">
+                <div className="row text-center">
+                    {
+                        news.map((val) => {
+                            return (
+                                    <div className="col my-3">
+                                        <div className="card" style={{ width: "18rem" }}>
+                                            <img src={val.urlToImage} className="card-img-top" alt="..." />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{val.title}</h5>
+                                                <p className="card-text">{val.description}</p>
+                                                <a href={val.url} target="_blank">view more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                        })
+                    }
                 </div>
-              )
-            })
-          }
-        </div>
-      </div>
-    </>
-  )
+            </div>
+        </>
+    )
 }
-export default App;
+export default Sport;
