@@ -87,7 +87,7 @@ function App() {
                     <div className="card-body">
                       <h5 className="card-title">{val.title}</h5>
                       <p className="card-text">{val.description}</p>
-                      <a href={val.url} target="_blank">view more</a>
+                      <a href={val.url} >view more</a>
                     </div>
                   </div>
                 </div>
