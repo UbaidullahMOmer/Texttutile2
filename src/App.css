@@ -157,7 +157,7 @@ img {
 .mb {
   margin-bottom: 80px;
 }
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .grid4,
   .grid3,
   .grid5 {
@@ -173,5 +173,11 @@ img {
   .back img,
   .back {
     height: 30vh;
+  }
+} */
+
+@media screen and (max-width: 1000px) {
+  .cards{
+    width: "40rem";
   }
 }
