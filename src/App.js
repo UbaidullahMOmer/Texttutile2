@@ -22,7 +22,7 @@ function App() {
     
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="!">NewsDay</a>
+          <a className="navbar-brand" href="!" >NewsDay</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="!navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -72,14 +72,17 @@ function App() {
           </div>
         </div>
       </nav>
-      <h1 className=".m-5">Latest news</h1>
+      <h1 className=".m-5" style={{ 
+            marginTop : "30px"
+            ,marginLeft : "200px"
+           }}>Latest news</h1>
       <div className="container my-5">
         <div className="row text-center">
           {
             news.map((val) => {
               return (
                 <div className="col my-3">
-                  <div className="card" style={{ width: "18rem" }}>
+                  <div className="card" style={{ width: "30rem" }}>
                     <img src={val.urlToImage} className="card-img-top" alt="..." />
                     <div className="card-body">
                       <h5 className="card-title">{val.title}</h5>
