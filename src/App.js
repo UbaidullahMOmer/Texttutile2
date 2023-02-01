@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import "./App.css"
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
   const [ca, setCa] = useState("in")
 
 
-  useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=${ca}&category=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
+
+  useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=${ca}&category=${con}&apiKey=75fa6547b40c4f989a8758a77fd15552`)
       .then((res) => {
         console.log(res.data.articles);
         setNews(res.data.articles)
@@ -35,7 +37,7 @@ function App() {
                 </button>
               
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu btn btn-outline-primary">
-                  <li onClick={() => { setCa("us") }} class="dropdown-item" >United kigdom</li>
+                  <li  onClick={() => { setCa("us") }} class="dropdown-item" >United kigdom</li>
                   <li onClick={() => { setCa("hk") }} class="dropdown-item" >Hong Kong</li>
                   <li onClick={() => { setCa("au") }} class="dropdown-item" >Australia</li>
                   <li onClick={() => { setCa("za") }} class="dropdown-item" >South Africa</li>
@@ -56,6 +58,10 @@ function App() {
                   <li onClick={() => { setCon("health") }}  class="dropdown-item">Health</li>
                   <li onClick={() => { setCon("science") }} class="dropdown-item">Science</li>
                   <li onClick={() => { setCon("sports") }}  class="dropdown-item">Sport</li>
+                  <li onClick={() => { setCon("technology") }}  class="dropdown-item">technology</li>
+                  <li onClick={() => { setCon("entertainment") }}  class="dropdown-item">entertainment</li>
+                  <li onClick={() => { setCon("business") }}  class="dropdown-item">business</li>
+                  <li onClick={() => { setCon("general") }}  class="dropdown-item">general</li>
                 </ul>
               </div>
             </ul>
