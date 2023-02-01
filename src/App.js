@@ -5,7 +5,7 @@ import axios from "axios"
 function App() {
   const [news, setNews] = useState([])
   const [con, setCon] = useState("general")
-  const [ca, setCa] = useState("us")
+  const [ca, setCa] = useState("in")
 
 
   useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=${ca}&category=${con}&apiKey=6343d39ae0724883bb56efd258a98abc`)
@@ -14,7 +14,7 @@ function App() {
         setNews(res.data.articles)
         // setPk(res.data.articles)
       })
-  }, [con])
+  }, [con,ca])
   return (
     <>
     
