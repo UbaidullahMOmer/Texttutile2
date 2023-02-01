@@ -7,6 +7,8 @@ function App() {
   const [news, setNews] = useState([])
   const [con, setCon] = useState("general")
   const [ca, setCa] = useState("in")
+  const [cah, setCah] = useState("Gernal")
+  const [coh, setCoh] = useState("Gernal")
 
 
 
@@ -37,7 +39,7 @@ function App() {
                 </button>
               
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu btn btn-outline-primary">
-                  <li  onClick={() => { setCa("us") }} class="dropdown-item" >United kigdom</li>
+                  <li  onClick={() => { setCa("us"); setCah("United kigdom");} } class="dropdown-item" >United kigdom</li>
                   <li onClick={() => { setCa("hk") }} class="dropdown-item" >Hong Kong</li>
                   <li onClick={() => { setCa("au") }} class="dropdown-item" >Australia</li>
                   <li onClick={() => { setCa("za") }} class="dropdown-item" >South Africa</li>
@@ -55,7 +57,7 @@ function App() {
                   Category
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li onClick={() => { setCon("health") }}  class="dropdown-item">Health</li>
+                  <li onClick={() => { setCon("health"); setCoh("Health") }}  class="dropdown-item">Health</li>
                   <li onClick={() => { setCon("science") }} class="dropdown-item">Science</li>
                   <li onClick={() => { setCon("sports") }}  class="dropdown-item">Sport</li>
                   <li onClick={() => { setCon("technology") }}  class="dropdown-item">technology</li>
@@ -75,7 +77,8 @@ function App() {
       <h1 className=".m-5" style={{ 
             marginTop : "30px"
             ,marginLeft : "200px"
-           }}>Latest news</h1>
+           }}>Country : {cah} <br></br>
+              Category : {coh}</h1>
       <div className="container my-5">
         <div className="row text-center">
           {
