@@ -17,6 +17,7 @@ function App() {
   }, [con])
   return (
     <>
+    
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="!">NewsDay</a>
@@ -65,6 +66,7 @@ function App() {
           </div>
         </div>
       </nav>
+      <h1 className=".m-5">Latest news</h1>
       <div className="container my-5">
         <div className="row text-center">
           {
@@ -85,6 +87,7 @@ function App() {
           }
         </div>
       </div>
+      
     </>
   )
 }
