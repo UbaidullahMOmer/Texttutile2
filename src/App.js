@@ -21,8 +21,8 @@ function App() {
   }, [con,ca])
   return (
     <>
-    
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    Ubaidullah
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" >
         <div className="container-fluid">
           <a className="navbar-brand" href="!" >NewsDay</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="!navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
