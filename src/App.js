@@ -6,22 +6,23 @@ import "./App.css"
 function App() {
   const [news, setNews] = useState([])
   const [con, setCon] = useState("general")
-  const [ca, setCa] = useState("in")
-  const [cah, setCah] = useState("India")
-  const [coh, setCoh] = useState("Gernal")
+  const [ca, setCa] = useState("us")
+  const [cah, setCah] = useState("US")
+  const [coh, setCoh] = useState("top")
+
+ 
 
 
-
-  useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=${ca}&category=${con}&apiKey=38daea198b1140c1b400c32ab3f20a2d`)
+  useEffect(() => {axios.get(`https://newsdata.io/api/1/news?apikey=pub_182712d5c2d9a82db77d9fa3d69b2cde69735&country=${ca}&category=${coh}&language=en`)
       .then((res) => {
-        console.log(res.data.articles);
-        setNews(res.data.articles)
+        console.log(res.data.results);
+        setNews(res.data.results)
         // setPk(res.data.articles)
       })
-  }, [con,ca])
+  }, [ca,coh])
   return (
     <>
-    Ubaidullah
+    
       <nav className="navbar navbar-expand-lg bg-body-tertiary" >
         <div className="container-fluid">
           <a className="navbar-brand" href="!" >NewsDay</a>
@@ -31,7 +32,7 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" onClick={() => { setCa("us") }}  class="btn btn-outline-primary" aria-current="page" href="!">Home</a>
+                <a className="nav-link active" onClick={() => { setCa("pk") }}  class="btn btn-outline-primary" aria-current="page">Home</a>
               </li>
               <div className="btn-group">
                 <button type="button" className="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +41,7 @@ function App() {
               
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu btn btn-outline-primary">
                   <li  onClick={() => { setCa("us"); setCah("United kigdom");} } class="dropdown-item" >United kigdom</li>
-                  <li onClick={() => { setCa("hk"); setCah("Hong Kong"); }} class="dropdown-item" >Hong Kong</li>
+                  <li onClick={() => { setCa("pk"); setCah("Pakistan"); }} class="dropdown-item" >Pakistan</li>
                   <li onClick={() => { setCa("au"); setCah("Australia"); }} class="dropdown-item" >Australia</li>
                   <li onClick={() => { setCa("za"); setCah("South Africa"); }} class="dropdown-item" >South Africa</li>
                   <li onClick={() => { setCa("gr"); setCah("Greece"); }} class="dropdown-item" >Greece</li>
@@ -49,7 +50,7 @@ function App() {
                   <li onClick={() => { setCa("at"); setCah("Austria"); }} class="dropdown-item" >Austria</li>
                   <li onClick={() => { setCa("hu"); setCah("Hungary"); }} class="dropdown-item" >Hungary</li>
                   <li onClick={() => { setCa("gr"); setCah("Greece"); }} class="dropdown-item" >Greece</li>
-                  <li onClick={() => { setCa("in"); setCah("India"); }} class="dropdown-item" >Greece</li>
+                  <li onClick={() => { setCa("in"); setCah("India"); }} class="dropdown-item" >India</li>
                 </ul>
              
               </div>
@@ -63,8 +64,8 @@ function App() {
                   <li onClick={() => { setCon("sports"); setCoh("Sport"); }}  class="dropdown-item">Sport</li>
                   <li onClick={() => { setCon("technology"); setCoh("Technology"); }}  class="dropdown-item">Technology</li>
                   <li onClick={() => { setCon("entertainment"); setCoh("Entertainment"); }}  class="dropdown-item">Entertainment</li>
-                  <li onClick={() => { setCon("business"); setCoh("Business"); }}  class="dropdown-item">Business</li>
-                  <li onClick={() => { setCon("general"); setCoh("General"); }}  class="dropdown-item">General</li>
+                  <li onClick={() => { setCon("world"); setCoh("World"); }}  class="dropdown-item">World</li>
+                  <li onClick={() => { setCon("top"); setCoh("Top"); }}  class="dropdown-item">Top</li>
                 </ul>
               </div>
             </ul>
@@ -75,6 +76,8 @@ function App() {
           </div>
         </div>
       </nav>
+      <center><h1>Ubaidullah</h1></center>
+      
       <h1 className=".m-5" style={{ 
             marginTop : "30px"
             ,marginLeft : "200px",
@@ -89,11 +92,11 @@ function App() {
               return (
                 <div className="col my-3">
                   <div className="cards" style={{ width: "30rem" }}>
-                    <img src={val.urlToImage} className="card-img-top" alt="..." />
+                    <img src={val.image_url} className="card-img-top" alt="..." />
                     <div className="card-body">
                       <h5 className="card-title">{val.title}</h5>
                       <p className="card-text">{val.description}</p>
-                      <a href={val.url} >view more</a>
+                      <a href={val.link} >view more</a>
                     </div>
                   </div>
                 </div>
