@@ -31,26 +31,24 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" onClick={() => { setCa("pk") }}  class="btn btn-outline-primary" aria-current="page">Home</a>
-              </li>
+              
               <div className="btn-group">
                 <button type="button" className="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   Country
                 </button>
               
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu btn btn-outline-primary">
-                  <li  onClick={() => { setCa("us"); setCah("United kigdom");} } class="dropdown-item" >United kigdom</li>
-                  <li onClick={() => { setCa("pk"); setCah("Pakistan"); }} class="dropdown-item" >Pakistan</li>
-                  <li onClick={() => { setCa("au"); setCah("Australia"); }} class="dropdown-item" >Australia</li>
-                  <li onClick={() => { setCa("za"); setCah("South Africa"); }} class="dropdown-item" >South Africa</li>
-                  <li onClick={() => { setCa("gr"); setCah("Greece"); }} class="dropdown-item" >Greece</li>
-                  <li onClick={() => { setCa("na"); setCah("New Zealand"); }} class="dropdown-item" >New Zealand</li>
-                  <li onClick={() => { setCa("kr"); setCah("South Korea"); }} class="dropdown-item" >South Korea</li>
-                  <li onClick={() => { setCa("at"); setCah("Austria"); }} class="dropdown-item" >Austria</li>
-                  <li onClick={() => { setCa("hu"); setCah("Hungary"); }} class="dropdown-item" >Hungary</li>
-                  <li onClick={() => { setCa("gr"); setCah("Greece"); }} class="dropdown-item" >Greece</li>
-                  <li onClick={() => { setCa("in"); setCah("India"); }} class="dropdown-item" >India</li>
+                  <li  onClick={() => { setCa("us"); setCah("United kigdom");} } className="dropdown-item" >United kigdom</li>
+                  <li onClick={() => { setCa("pk"); setCah("Pakistan"); }} className="dropdown-item" >Pakistan</li>
+                  <li onClick={() => { setCa("au"); setCah("Australia"); }} className="dropdown-item" >Australia</li>
+                  <li onClick={() => { setCa("za"); setCah("South Africa"); }} className="dropdown-item" >South Africa</li>
+                  <li onClick={() => { setCa("gr"); setCah("Greece"); }} className="dropdown-item" >Greece</li>
+                  <li onClick={() => { setCa("na"); setCah("New Zealand"); }} className="dropdown-item" >New Zealand</li>
+                  <li onClick={() => { setCa("kr"); setCah("South Korea"); }} className="dropdown-item" >South Korea</li>
+                  <li onClick={() => { setCa("at"); setCah("Austria"); }} className="dropdown-item" >Austria</li>
+                  <li onClick={() => { setCa("hu"); setCah("Hungary"); }} className="dropdown-item" >Hungary</li>
+                  <li onClick={() => { setCa("gr"); setCah("Greece"); }} className="dropdown-item" >Greece</li>
+                  <li onClick={() => { setCa("in"); setCah("India"); }} className="dropdown-item" >India</li>
                 </ul>
              
               </div>
@@ -59,13 +57,13 @@ function App() {
                   Category
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li onClick={() => { setCon("health"); setCoh("Health"); }}  class="dropdown-item">Health</li>
-                  <li onClick={() => { setCon("science"); setCoh("Science"); }} class="dropdown-item">Science</li>
-                  <li onClick={() => { setCon("sports"); setCoh("Sport"); }}  class="dropdown-item">Sport</li>
-                  <li onClick={() => { setCon("technology"); setCoh("Technology"); }}  class="dropdown-item">Technology</li>
-                  <li onClick={() => { setCon("entertainment"); setCoh("Entertainment"); }}  class="dropdown-item">Entertainment</li>
-                  <li onClick={() => { setCon("world"); setCoh("World"); }}  class="dropdown-item">World</li>
-                  <li onClick={() => { setCon("top"); setCoh("Top"); }}  class="dropdown-item">Top</li>
+                  <li onClick={() => { setCon("health"); setCoh("Health"); }}  className="dropdown-item">Health</li>
+                  <li onClick={() => { setCon("science"); setCoh("Science"); }} className="dropdown-item">Science</li>
+                  <li onClick={() => { setCon("sports"); setCoh("Sport"); }}  className="dropdown-item">Sport</li>
+                  <li onClick={() => { setCon("technology"); setCoh("Technology"); }}  className="dropdown-item">Technology</li>
+                  <li onClick={() => { setCon("entertainment"); setCoh("Entertainment"); }}  className="dropdown-item">Entertainment</li>
+                  <li onClick={() => { setCon("world"); setCoh("World"); }}  className="dropdown-item">World</li>
+                  <li onClick={() => { setCon("top"); setCoh("Top"); }}  className="dropdown-item">Top</li>
                 </ul>
               </div>
             </ul>
@@ -84,7 +82,7 @@ function App() {
             color: "#0b2d39"
            }}>Latest News <br></br>
             Country : <span style={{color:"#1a6985" , fontSize:"36px"}}>{cah}</span>  <br></br>
-              Category : <span style={{color:"#1a6985" ,fontSize:"36px"}}>{coh}</span></h1>
+              Category : <span style={{color:"#1a6985" ,fontSize:"36px"}}>{con}</span></h1>
       <div className="container my-5">
         <div className="row text-center">
           {
