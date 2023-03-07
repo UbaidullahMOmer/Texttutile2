@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
-import "./App.css"
-import Home from "./component/Home"
+import React from "react";
+// import axios from "axios";
+import "./App.css";
+import Home from "./component/Home";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Add from "./component/Add";
 
 function App() {
   // const [news, setNews] = useState([])
@@ -9,7 +11,7 @@ function App() {
   // const [ca, setCa] = useState("us")
   // const [cah, setCah] = useState("US")
   // const [coh, setCoh] = useState("top")
-
+ 
  
 
 
@@ -103,8 +105,13 @@ function App() {
           }
         </div>
       </div> */}
-      <h1>Ubaidullah</h1>
 
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path="/create" element={<Add/>}/>
+        </Routes>
+      </Router>
 
 
 
