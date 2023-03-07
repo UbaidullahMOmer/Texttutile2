@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import "./App.css"
-
+import Home from "./component/Home"
 
 function App() {
-  const [news, setNews] = useState([])
-  const [con, setCon] = useState("general")
-  const [ca, setCa] = useState("us")
-  const [cah, setCah] = useState("US")
-  const [coh, setCoh] = useState("top")
+  // const [news, setNews] = useState([])
+  // const [con, setCon] = useState("general")
+  // const [ca, setCa] = useState("us")
+  // const [cah, setCah] = useState("US")
+  // const [coh, setCoh] = useState("top")
 
  
 
 
-  useEffect(() => {axios.get(`https://newsdata.io/api/1/news?apikey=pub_182712d5c2d9a82db77d9fa3d69b2cde69735&country=${ca}&category=${coh}&language=en`)
-      .then((res) => {
-        console.log(res.data.results);
-        setNews(res.data.results)
-        // setPk(res.data.articles)
-      })
-  }, [ca,coh])
+  // useEffect(() => {axios.get(`https://newsdata.io/api/1/news?apikey=pub_182712d5c2d9a82db77d9fa3d69b2cde69735&country=${ca}&category=${coh}&language=en`)
+  //     .then((res) => {
+  //       console.log(res.data.results);
+  //       setNews(res.data.results)
+  //       // setPk(res.data.articles)
+  //     })
+  // }, [ca,coh])
   return (
     <>
     
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" >
+      {/* <nav className="navbar navbar-expand-lg bg-body-tertiary" >
         <div className="container-fluid">
           <a className="navbar-brand" href="!" >NewsDay</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="!navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,8 +102,19 @@ function App() {
             })
           }
         </div>
-      </div>
-      
+      </div> */}
+      <h1>Ubaidullah</h1>
+
+
+
+
+
+
+
+
+
+
+
     </>
   )
 }
