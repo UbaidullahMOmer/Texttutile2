@@ -5,7 +5,8 @@ This project create for learning porpose.
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `npm install`
+and then
 ### `npm start`
 
 Runs the app in the development mode.\
