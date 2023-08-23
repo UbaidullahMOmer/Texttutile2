@@ -26,17 +26,17 @@ function App() {
     axios.get(`https://newsdata.io/api/1/news?apikey=pub_182712d5c2d9a82db77d9fa3d69b2cde69735&country=${ca}&category=${coh}&language=en`)
       .then((res) => {
         console.log(res);
-        console.log(res.data.results);
-        setNews(res.data.results);
+        console.log(res?.data?.results);
+        setNews(res?.data?.results);
       })
       .finally(() => {
         setLoading(false); // Set loading to false when the request is finished (success or error)
       });
   }, [ca, coh]);
   function limitDescription(description, maxWords) {
-    const words = description.split(" ");
-    if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(" ") + "...";
+    const words = description?.split(" ");
+    if (words?.length > maxWords) {
+      return words?.slice(0, maxWords)?.join(" ") + "...";
     }
     return description;
   }
