@@ -6,7 +6,7 @@ import axios from "axios";
 // import Add from "./component/Add";
 // import Edit from "./component/Edit";
 // import Home from "./components/pages/Home";
-  // import Home from "./crudwithoutserver/Home"
+// import Home from "./crudwithoutserver/Home"
 // import { Add } from "@mui/icons-material";
 function App() {
   const [news, setNews] = useState([])
@@ -15,18 +15,32 @@ function App() {
   const [cah, setCah] = useState("US")
   const [coh, setCoh] = useState("top")
 
+  const [loading, setLoading] = useState(true);
 
-
-
+  const [showFullDescription, setShowFullDescription] = useState(false);
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
   useEffect(() => {
+    setLoading(true); // Set loading to true when the request starts
     axios.get(`https://newsdata.io/api/1/news?apikey=pub_182712d5c2d9a82db77d9fa3d69b2cde69735&country=${ca}&category=${coh}&language=en`)
-    .then((res) => {
-      console.log(res)
-      console.log(res.data.results);
-      setNews(res.data.results)
-      // setPk(res.data.articles)
-    })
-  }, [ca, coh])
+      .then((res) => {
+        console.log(res);
+        console.log(res.data.results);
+        setNews(res.data.results);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false when the request is finished (success or error)
+      });
+  }, [ca, coh]);
+  function limitDescription(description, maxWords) {
+    const words = description.split(" ");
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(" ") + "...";
+    }
+    return description;
+  }
+  
   return (
     <>
 
@@ -92,32 +106,55 @@ function App() {
         Category : <span style={{ color: "#1a6985", fontSize: "36px" }}>{con}</span></h1>
       <div className="container my-5">
         <div className="row text-center">
-          {
+          {loading ? (
+            <>
+            <h1>Loading...</h1>
+            </>
+          ) : (
             news.map((val) => {
               return (
-                <div className="col my-3" key={val?.pubDate}>
-                  <div className="cards" style={{ width: "30rem" }}>
-                    <img 
-                    src={`${val?.image_url}`} 
-                    className="card-img-top" 
-                    // src={`https://danzee.fra1.digitaloceanspaces.com/dzfood/admin/images/products/large/${props.image}`}
-                    alt="product img"
-                    onError={(event) =>
-                    (event.target.src =
-                        "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png")
-                    }
-                    loading="lazy"
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{val.title}</h5>
-                      <p className="card-text">{val.description}</p>
-                      <a href={val.link} >view more</a>
-                    </div>
-                  </div>
-                </div>
-              )
+                news.map((val) => {
+                  return (
+                    <div className="col my-3" key={val?.pubDate}>
+          <div className="cards" style={{ width: "30rem" }}>
+            <img
+              src={`${val?.image_url}`}
+              className="card-img-top"
+              alt="product img"
+              onError={(event) =>
+                (event.target.src =
+                  "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png")
+              }
+              loading="lazy"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{val.title}</h5>
+              {/* Display full description or truncated description based on state */}
+              <p className="card-text">
+                {showFullDescription
+                  ? val.description
+                  : limitDescription(val.description, 30)}
+              </p>
+              {/* Show "View More" button only if description is truncated */}
+              {val.description.split(" ").length > 30 && (
+                <button
+                  className="btn btn-link"
+                  onClick={toggleDescription}
+                >
+                  {showFullDescription ? "View Less" : "View More"}
+                </button>
+              )}
+              <a href={val.link}>view more</a>
+            </div>
+          </div>
+        </div>
+                  );
+                })
+                
+              );
             })
-          }
+          )}
+
         </div>
       </div>
 
@@ -134,7 +171,7 @@ function App() {
 
 
 
- 
+
 
 
     </>
